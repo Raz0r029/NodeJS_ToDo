@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const taskController = require('../controller/taskLists');
+const createController = require('../controller/List');
 
-router.get('/', taskController.getList);
-router.post('/', taskController.postList);
+router.get('/', createController.getList);
+router.post('/', createController.postList);
 
 module.exports = router;

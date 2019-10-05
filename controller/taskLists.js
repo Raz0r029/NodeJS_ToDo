@@ -1,15 +1,13 @@
-const List = require('../models/list');
+const List = require('../models/modelList');
 
-exports.getList = (req, res, next) => {
-    res.render('lists', {
-        pageTitle: 'To Do List',
-        path: 'lists'
-    });
-}
-
-exports.postList = (req, res, next) => {
-    const list = new Product(null, req.body.id, req.body.task);
-    product.save().then(() => {
-      res.redirect('/');
-    }).catch(err => console.log(err));
-  }
+exports.getTodoList = (req, res, next) => {
+  Todolist.fetchAll()
+    .then(([rows, fieldData]) => {
+      res.render('lists', {
+        todo: rows,
+        pageTitle: 'All Todo List',
+        path: '/'
+      });
+    })
+    .catch(err => console.log(err));
+};

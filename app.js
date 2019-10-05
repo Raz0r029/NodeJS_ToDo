@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const errorController = require('./controller/error');
 const app = express();
+
 app.set('view engine', 'ejs');
 
 const viewListRoutes = require('./routes/viewList');
@@ -15,5 +17,7 @@ app.use('/fonts', express.static(path.join(__dirname, 'node_modules/@mdi/font/fo
 app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 
 app.use(viewListRoutes);
+
+app.use(errorController.get404);
 
 app.listen(3000);
