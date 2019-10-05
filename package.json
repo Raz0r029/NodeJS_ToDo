@@ -1,0 +1,32 @@
+{
+  "name": "nodejs_todo",
+  "version": "1.0.0",
+  "description": "Pre-Practical Exam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raz0r029/NodeJS_ToDo.git"
+  },
+  "author": "Payawal, Franz Gian S.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raz0r029/NodeJS_ToDo/issues"
+  },
+  "homepage": "https://github.com/Raz0r029/NodeJS_ToDo#readme",
+  "dependencies": {
+    "@mdi/font": "^4.4.95",
+    "body-parser": "^1.19.0",
+    "bulma": "^0.7.5",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "mysql2": "^1.7.0",
+    "nodemon": "^1.19.3",
+    "start": "^5.1.0"
+  }
+}

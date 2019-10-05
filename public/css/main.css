@@ -1,0 +1,14 @@
+.navbar.is-blue {
+    background-color: #0099ff;
+    color: #ffffff
+}
+
+.button.is-link {
+    background-color: #0099ff;
+}
+
+.button.is-link.is-hovered, .button.is-link:hover {
+    background-color: rgb(123, 174, 255);
+    border-color: transparent;
+    color: #fff;
+}
