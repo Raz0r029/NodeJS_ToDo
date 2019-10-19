@@ -1,20 +1,48 @@
 const List = require('../models/modelList');
 
-exports.getList = (req, res, next) => {
+exports.getAllList = (req, res, next) => {
   List.fetchAll().then(([rows, fieldData]) => {
       res.render('lists', {
-          todo: rows,
-          pageTitle: 'To Do List',
-          path: '/'
+        todoList: rows,
+        pageTitle: 'To Do List',
+        path: '/'
       });
-  })
-  .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
 }
 
 exports.postList = (req, res, next) => {
-  const message = req.body.title;
-    const list = new List(message);
-    list.save().then(() => {
+  const {title} = req.body;
+  const list = new List(title);
+  list.save().then(() => {
+    res.redirect('/');
+  }).catch(err => console.log(err));
+}
+
+exports.getEditList = (req, res) => {
+  const {
+    id
+  } = req.params;
+
+  List.findById(id).
+  then(([rows, fieldData]) => {
+      res.render('product/edit-product', {
+        product: rows[0],
+        pageTitle: 'Edit Product',
+        path: ''
+      });
+    })
+    .catch(err => console.log(err));
+};
+
+
+exports.deleteList = (req, res) => {
+  const {
+    id
+  } = req.params;
+
+  List.deleteById(id).then(() => {
       res.redirect('/');
-    }).catch(err => console.log(err));
-  }
+    })
+    .catch(err => console.log(err));
+};

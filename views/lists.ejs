@@ -25,16 +25,28 @@
 
     <section class="section">
         <div class="container">
-            <% if (todo.length > 0) { %>
-            <% for (let Todo of todo) { %>
+            <% if (todoList.length > 0) { %>
+            <% for (let todo of todoList) { %>
             <div class="columns is-full">
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
-                            <p class="title is-4"><%=Todo.task%></p>
+                            <p class="title is-4"><%=todo.task%></p>
                         </div>
                     </div>
                 </div>
+                <a class="card-footer-item" href="/list/<%=todo.id%>/delete">
+                    <span class="icon">
+                        <i class="mdi mdi-delete"></i>
+                    </span>
+                    <span>Delete</span>
+                </a>
+                <a class="card-footer-item" href="/list/<%=todo.id%>/edit">
+                    <span class="icon">
+                        <i class="mdi mdi-pencil"></i>
+                    </span>
+                    <span>Edit</span>
+                </a>
             </div>
             <% } %>
         </div>
